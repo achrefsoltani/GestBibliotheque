@@ -8,6 +8,7 @@ package interfaces;
 import controllers.LivreJpaController;
 import controllers.exceptions.NonexistentEntityException;
 import entities.Livre;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManagerFactory;
@@ -58,6 +59,11 @@ public class Glivre extends javax.swing.JFrame {
         });
 
         jButton2.setText("List");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Ajouter");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -224,6 +230,20 @@ public class Glivre extends javax.swing.JFrame {
         }
         JOptionPane.showMessageDialog(null, "Livre Supprimé");
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            ListLivre lLivre = new ListLivre();
+            lLivre.setBounds(800, 0,700,400);
+            lLivre.setVisible(true);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Genseignant.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Genseignant.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
