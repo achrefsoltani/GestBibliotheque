@@ -6,7 +6,9 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +16,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlTransient;
 
 
 /**
@@ -35,6 +39,9 @@ import javax.persistence.Table;
     @NamedQuery(name = "Etudiant.findByEmail", query = "SELECT e FROM Etudiant e WHERE e.email = :email"),
     @NamedQuery(name = "Etudiant.findByClasse", query = "SELECT e FROM Etudiant e WHERE e.classe = :classe")})
 public class Etudiant implements Serializable {
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEtudiant")
+    private Collection<Emprunt> empruntCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -169,6 +176,15 @@ public class Etudiant implements Serializable {
     @Override
     public String toString() {
         return "entities.Etudiant[ id=" + id + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Emprunt> getEmpruntCollection() {
+        return empruntCollection;
+    }
+
+    public void setEmpruntCollection(Collection<Emprunt> empruntCollection) {
+        this.empruntCollection = empruntCollection;
     }
     
 }

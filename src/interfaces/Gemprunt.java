@@ -5,6 +5,10 @@
  */
 package interfaces;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Achref
@@ -47,6 +51,11 @@ public class Gemprunt extends javax.swing.JFrame {
         jButton2.setText("Retourner");
 
         jButton3.setText("List");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,8 +90,21 @@ public class Gemprunt extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+            Aemprunt addemp = new  Aemprunt();
+            addemp .setBounds(800, 0,700,400);
+            addemp .setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+            // TODO add your handling code here:
+            ListEmprunt liEmp = new  ListEmprunt();
+            liEmp.setBounds(800, 0,700,400);
+            liEmp.setVisible(true);
+        
+            
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

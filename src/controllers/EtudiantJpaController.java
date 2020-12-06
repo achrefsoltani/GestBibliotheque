@@ -121,6 +121,14 @@ public class EtudiantJpaController implements Serializable {
             em.close();
         }
     }
+    public Etudiant findEtudiantNom(String prenom) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(Etudiant.class, prenom);
+        } finally {
+            em.close();
+        }
+    }
 
     public int getEtudiantCount() {
         EntityManager em = getEntityManager();

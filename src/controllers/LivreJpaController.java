@@ -121,6 +121,14 @@ public class LivreJpaController implements Serializable {
             em.close();
         }
     }
+    public Livre findLivreTitre(String titre) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(Livre.class, titre);
+        } finally {
+            em.close();
+        }
+    }
 
     public int getLivreCount() {
         EntityManager em = getEntityManager();
