@@ -20,6 +20,7 @@ public class Gemprunt extends javax.swing.JFrame {
      */
     public Gemprunt() {
         initComponents();
+         
     }
 
     /**
@@ -49,6 +50,11 @@ public class Gemprunt extends javax.swing.JFrame {
         });
 
         jButton2.setText("Retourner");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("List");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -97,14 +103,27 @@ public class Gemprunt extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
+        try {
             // TODO add your handling code here:
             ListEmprunt liEmp = new  ListEmprunt();
             liEmp.setBounds(800, 0,700,400);
             liEmp.setVisible(true);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Gemprunt.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Gemprunt.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
             
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        REmprunt r = new  REmprunt();
+            r.setBounds(800, 0,700,400);
+            r.setVisible(true);
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

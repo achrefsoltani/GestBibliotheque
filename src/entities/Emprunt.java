@@ -32,6 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Emprunt.findAll", query = "SELECT e FROM Emprunt e"),
     @NamedQuery(name = "Emprunt.findById", query = "SELECT e FROM Emprunt e WHERE e.id = :id"),
+    
     @NamedQuery(name = "Emprunt.findByDateemp", query = "SELECT e FROM Emprunt e WHERE e.dateemp = :dateemp"),
     @NamedQuery(name = "Emprunt.findByDateretour", query = "SELECT e FROM Emprunt e WHERE e.dateretour = :dateretour")})
 public class Emprunt implements Serializable {

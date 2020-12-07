@@ -31,10 +31,11 @@ public class ListEmprunt extends javax.swing.JFrame {
         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bibliotheque?zeroDateTimeBehavior=CONVERT_TO_NULL", "root", "");
         initComponents();
         affichage ();
+         super.dispose();
     }
      public void affichage (){
         try{
-            String requete = "select * from emprunt";
+            String requete = "select prenom,titre,dateemp,dateretour from emprunt,livre,etudiant where emprunt.etudiant=etudiant.id And emprunt.livre=livre.id";
             ps = conn.prepareStatement(requete);
             rs=ps.executeQuery();
             lstEmprunt.setModel(DbUtils.resultSetToTableModel(rs)); 
@@ -44,6 +45,7 @@ public class ListEmprunt extends javax.swing.JFrame {
             System.out.println(e.getMessage());
             
         }
+        super.dispose();
     }
 
     /**
@@ -148,7 +150,7 @@ public class ListEmprunt extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ListEmprunt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

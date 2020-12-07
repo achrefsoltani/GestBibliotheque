@@ -59,6 +59,11 @@ public class Menu extends javax.swing.JFrame {
 
         jButton4.setFont(new java.awt.Font("Vivaldi", 3, 24)); // NOI18N
         jButton4.setText("Gestion des emprunts");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,6 +122,12 @@ public class Menu extends javax.swing.JFrame {
         glivre.setBounds(400, 0,400,400);
         glivre.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       Gemprunt gemprunt = new Gemprunt ();
+        gemprunt.setBounds(400, 0,400,400);
+        gemprunt.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

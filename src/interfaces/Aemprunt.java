@@ -23,6 +23,7 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.swing.JOptionPane;
 public class Aemprunt extends javax.swing.JFrame {
 
     /**
@@ -191,7 +192,18 @@ public class Aemprunt extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdEmpruntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEmpruntActionPerformed
-       try{   
+        if(
+                (txtEtudiant.getSelectedItem().toString().equals("")) 
+                || 
+                (txtLivre.getSelectedItem().toString().equals(""))
+                || (txtDateemprunt.getDate().equals(""))|| (txtDateretour.getDate().equals(""))
+               
+           ){
+            JOptionPane.showMessageDialog(null,"Veuillez renseigner les champs etudiant,livre,date emprunte e date retour!","Gestion des emprunts",JOptionPane.WARNING_MESSAGE);
+            
+            return;
+        }
+        try{   
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("GestionBibliothequePU");       
         EmpruntJpaController Empcontroller = new EmpruntJpaController(emf);
         EtudiantJpaController Etudiantcontroller = new EtudiantJpaController(emf);
@@ -207,12 +219,12 @@ public class Aemprunt extends javax.swing.JFrame {
         emp.setIdEtudiant(etudiant);
         emp.setIdLivre(livre);               
         Empcontroller.create(emp);
-        super.dispose();
+        
        } catch(Exception ex){
           System.out.println(ex);
        }
         
-        
+        super.dispose();
     }//GEN-LAST:event_cmdEmpruntActionPerformed
 
     /**
